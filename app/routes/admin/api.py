@@ -13,9 +13,4 @@ admin_api = Api(admin_api_bp,
           contact='Petter guo',
           doc='/doc/') # 对应 /api/v1/doc/
 
-# 导入并注册所有的 API 命名空间到这个 api 实例
-# 这样，所有在各个 routes.py 中定义的 namespace 都会被收集到这里
-from app.routes.admin.user import user_bp
-
-admin_api.add_namespace(user_bp)
 

@@ -4,4 +4,4 @@ from .response import success_response, error_response
 from .method import getNowTime
 from .snowFlakeId import get_unique_id
 from .requestHook import app
-from .registerBlueprint import registerBlueprint
+#from .registerBlueprint import registerBlueprint

@@ -3,7 +3,6 @@
   author: petter
   date: 2025/05/13
 """
-from email.policy import default
 from flask import request
 from flask_restx import Resource, fields
 from .api import admin_api as api

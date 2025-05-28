@@ -4,7 +4,7 @@
     @date: 2025/05/14
 """
 from http.client import HTTPException
-from flask import blueprints, request
+from flask import request
 from flask_jwt_extended import verify_jwt_in_request
 from flask_jwt_extended.exceptions import NoAuthorizationError
 from .response import error_response
