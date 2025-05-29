@@ -10,7 +10,6 @@ class categoryAddModel(BaseModel):
 
 class categoryUpdateModel(BaseModel):
     id: str
-
     @field_validator("id")
     def validate_categoryid(cls, v):
         if not v:

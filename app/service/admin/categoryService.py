@@ -17,7 +17,7 @@ class CatefgoryService():
     """
     category = self.model.get_by_name(data['category_name'])
     if category:
-        return error_response('category already exists!')
+        return error_response('category_name already exists!')
     data["id"] = str(get_unique_id())
     return self.model.create(data)
   
@@ -31,6 +31,9 @@ class CatefgoryService():
     curr_item = self.model.get_by_id(id)
     if not curr_item:
         return error_response('category not found!')
+    name = data.get('category_name')
+    if name and self.model.get_by_name(name):
+        return error_response('category_name already exists!')
     return self.model.update(curr_item, data)
   
   def delete_category(self, category_id):

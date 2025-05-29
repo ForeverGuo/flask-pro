@@ -18,7 +18,7 @@ from app.service.admin.userService import userService
 
 user_bp = api.namespace('user', description="用户管理")
 
-user_add_model = user_bp.model('add_user_params', {
+user_add_model = user_bp.model('添加用户', {
     "username": fields.String(description="用户名", required=True),
     "password": fields.String(description="密码", required=True),
     "phone": fields.String(description="手机号"),
@@ -26,7 +26,7 @@ user_add_model = user_bp.model('add_user_params', {
     "avatar": fields.String(description="头像"),
 })
 
-user_update_model = user_bp.model('update_user_params', {
+user_update_model = user_bp.model('修改用户', {
     "user_id": fields.String(description="用户id", required=True),
     "username": fields.String(description="用户名"),
     "password": fields.String(description="密码"),
@@ -35,13 +35,13 @@ user_update_model = user_bp.model('update_user_params', {
     "avatar": fields.String(description="头像"),
 })
 
-user_list_model = user_bp.model('user_list_model', {
+user_list_model = user_bp.model('用户列表', {
     "pageIndex": fields.Integer(description="分页码", required=True, default=1),
     "pageSize": fields.String(description="数据条数", required=True, default=10),
     "username": fields.String(description="用户名"),
 })
 
-user_delete_model = user_bp.model('delete_user_params', {
+user_delete_model = user_bp.model('删除用户', {
     "user_id": fields.String(description="用户id", required=True),
 })
 

@@ -30,6 +30,6 @@ def validate_model(model_cls):
                 return func(*args, **kwargs)
             except ValidationError as e:
                 errors = [{"field": err["loc"][0], "msg": err["msg"]} for err in e.errors()]
-                return jsonify({"code": 400, "errors": errors}), 400
+                return {"code": 400, "errors": errors}, 400
         return wrapper
     return decorator
