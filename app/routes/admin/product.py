@@ -5,7 +5,7 @@
 from flask import request
 from flask_restx import Resource, fields
 from .api import admin_api as api
-from app.routes.admin.schemas.productSchema import productModel, productUpdateModel
+from app.routes.admin.schemas.productSchema import productModel
 from app.utils import (
     validate_model,
     error_response,

@@ -11,6 +11,7 @@ class productModel(BaseModel):
     category_id: str
     status: Optional[int] = 0
     created_at: Optional[str] = None
+    skus: Optional[list] = None
 
 class productUpdateModel(BaseModel):
     id: str

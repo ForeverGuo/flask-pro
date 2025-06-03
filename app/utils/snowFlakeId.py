@@ -108,6 +108,6 @@ class SnowflakeIDGenerator:
             )
             return id
         
-def get_unique_id():
-    snowflake = SnowflakeIDGenerator(1,1)
+def get_unique_id(a=1, b=1):
+    snowflake = SnowflakeIDGenerator(a,b)
     return snowflake.generate_id()

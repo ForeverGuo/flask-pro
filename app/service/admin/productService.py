@@ -13,10 +13,15 @@ class ProductService():
       new_product = self.model.get_by_name(new_product_name)
       if new_product:
           return error_response('product already exists!')
-
-      data["id"] = str(get_unique_id())
+      skus = data.pop("skus")
+      data["id"] = str(get_unique_id(1,1))
       data["created_at"] = getNowTime()
-      return self.model.create(data)
+
+      for sku in skus:
+          sku["id"] = str(get_unique_id(1,2))
+          sku["created_at"] = getNowTime()
+
+      return self.model.create(data, skus)
    
    def update_product(self, data):
       id = data.get('id')
@@ -26,7 +31,18 @@ class ProductService():
       if not new_product:
           return error_response('product not found!')
       data["update_at"] = datetime.now()
-      return self.model.update(new_product, data)
+      skus = data.pop('skus')
+      if skus:
+          for sku in skus:
+              sku_id = sku.get('id')
+              if not sku_id:
+                 return error_response('sku_id is required!')
+      args = {
+        "instance": new_product,
+        "data": data,
+        "skus": skus
+      }
+      return self.model.update(**args)
    
    def delete_product(self, product_id):
       product = self.model.get_by_id(product_id)
